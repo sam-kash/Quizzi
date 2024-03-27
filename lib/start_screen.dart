@@ -41,10 +41,11 @@ class StartScreen extends StatelessWidget {
             style: OutlinedButton.styleFrom(
                 foregroundColor: const Color.fromARGB(255, 255, 254, 255),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.0),
+                  borderRadius: BorderRadius.circular(0.6),
                 )),
             icon: const Icon(Icons.arrow_right_alt),
-            label: const Text('Start'),
+            label: const Text(
+                'Start'), // widget that is defined inside the ICON  widget to describe the non ICON stuff
           ),
         ],
       ),
