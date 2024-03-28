@@ -1,4 +1,5 @@
 // Must contain the Material App
+//PARENT WIDGET
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -17,11 +18,17 @@ class Quiz extends StatefulWidget {
 // We havent aadded a constructor finction, but we dont have to instead dart automatically gives you one
 
 class _QuizState extends State<Quiz> {
-  Widget activeScreen =
-      const StartScreen(); // TYhis will the be the initial screen that we see in the UI
+  Widget?
+      activeScreen; // TYhis will the be the initial screen that we see in the UI
 
   // Now we are adding a method here which is called SwitchScreen
   // In flutter Development, we generally call functions as methods, Anyway
+
+  @override
+  void initState() {
+    activeScreen = StartScreen(switchScreen);
+    super.initState();
+  }
 
   void switchScreen() {
     setState(() {
