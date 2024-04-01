@@ -1,6 +1,7 @@
 import 'package:quizzi/models/quiz_question.dart';
 
 // it is just acting like a variable type
+// We've created the whole question function as a list .
 const questions = [
   QuizQuestion('What are the main building blocks in Flutter', [
     'Widgets',

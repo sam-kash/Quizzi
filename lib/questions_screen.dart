@@ -1,6 +1,8 @@
 // Return Text Widget
 
 import 'package:flutter/material.dart';
+import 'package:quizzi/answer_button.dart';
+import 'package:quizzi/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen(
@@ -15,35 +17,37 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
+    final currentQuestion = questions[0];
+
     return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment
             .center, // Literally bring the things in the center of the screen
         children: [
-          const Text(
-            'The Questions .....',
-            style: TextStyle(
-                color: Color.fromARGB(255, 166, 216, 37), fontSize: 18),
+          Text(
+            currentQuestion.text,
+            style: const TextStyle(
+                color: Color.fromARGB(255, 146, 176, 222), fontSize: 18),
           ),
           const SizedBox(
             height: 30,
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 1'),
+          AnswerButton(
+            answerText: currentQuestion.answers[0],
+            onTap: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 2'),
+          AnswerButton(
+            answerText: currentQuestion.answers[1],
+            onTap: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 3'),
+          AnswerButton(
+            answerText: currentQuestion.answers[2],
+            onTap: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 4'),
+          AnswerButton(
+            answerText: currentQuestion.answers[3],
+            onTap: () {},
           ),
         ],
       ),
