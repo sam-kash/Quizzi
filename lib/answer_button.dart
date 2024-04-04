@@ -19,7 +19,10 @@ class AnswerButton extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 43, 12, 167),
         foregroundColor: Colors.white,
       ),
-      child: Text(answerText),
+      child: Text(
+        answerText,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 } // Stateelss widget Class

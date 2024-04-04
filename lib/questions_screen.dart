@@ -1,6 +1,7 @@
 // Return Text Widget
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quizzi/answer_button.dart';
 import 'package:quizzi/data/questions.dart';
 
@@ -38,8 +39,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           children: [
             Text(
               currentQuestion.text,
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 146, 176, 222), fontSize: 18),
+              style: GoogleFonts.lato(
+                color: const Color.fromARGB(255, 203, 170, 253),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
