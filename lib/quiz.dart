@@ -1,10 +1,12 @@
-// Must contain the Material App
 //PARENT WIDGET THat controls the the navigation of the screens
+// Must contain the Material App
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:quizzi/data/questions.dart';
 import 'package:quizzi/questions_screen.dart';
 import 'package:quizzi/start_screen.dart';
+import 'package:quizzi/results_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -21,19 +23,6 @@ class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
 
-  // Widget?
-  //     activeScreen; // TYhis will the be the initial screen that we see in the UI
-
-  // Now we are adding a method here which is called SwitchScreen
-  // In flutter Development, we generally call functions as methods, Anyway
-
-  // INITSTATE IS REMOVED
-  // @override
-  // void initState() {
-  //   activeScreen = StartScreen(switchScreen);
-  //   super.initState();
-  // }
-
   void switchScreen() {
     setState(() {
       activeScreen = 'questions-screen';
@@ -42,6 +31,14 @@ class _QuizState extends State<Quiz> {
 
   void choseAnswer(String answer) {
     selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen =
+            'results-screen'; // Temporary, will be gaving a result screen soon
+      });
+    }
   }
 
   @override
@@ -53,6 +50,9 @@ class _QuizState extends State<Quiz> {
       screenWidget = QuestionsScreen(
         onSelectAnswer: choseAnswer,
       );
+    }
+    if (activeScreen == 'results-screen') {
+      screenWidget = ResultsScreen(chosenAnswers: selectedAnswers);
     }
 
     return MaterialApp(
@@ -75,3 +75,12 @@ class _QuizState extends State<Quiz> {
     );
   }
 }
+
+
+
+// INITSTATE IS REMOVED
+  // @override
+  // void initState() {
+  //   activeScreen = StartScreen(switchScreen);
+  //   super.initState();
+  // }
