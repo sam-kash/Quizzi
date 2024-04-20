@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzi/data/questions.dart';
 //import 'package:flutter/widgets.dart';
+import 'package:quizzi/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key, required this.chosenAnswers});
@@ -14,10 +15,10 @@ class ResultsScreen extends StatelessWidget {
     for (int i = 0; i < chosenAnswers.length; i++) {
       summary.add(
         {
-          'Question_index': i,
+          'question_index': i,
           'question':
               questions[i].text, // Cuz We wanna access the text of the question
-          'correct_answers': questions[i].answers[0],
+          'correct_answer': questions[i].answers[0],
           'user_answer': chosenAnswers[i],
         },
       );
@@ -38,7 +39,7 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Text('List of Questions and answers....'),
+            QuestionsSummary(getSummarydata()),
             const SizedBox(
               height: 30,
             ),

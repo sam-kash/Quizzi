@@ -34,7 +34,6 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        selectedAnswers = [];
         activeScreen =
             'results-screen'; // Temporary, will be gaving a result screen soon
       });
@@ -76,11 +75,9 @@ class _QuizState extends State<Quiz> {
   }
 }
 
-
-
 // INITSTATE IS REMOVED
-  // @override
-  // void initState() {
-  //   activeScreen = StartScreen(switchScreen);
-  //   super.initState();
-  // }
+// @override
+// void initState() {
+//   activeScreen = StartScreen(switchScreen);
+//   super.initState();
+// }
