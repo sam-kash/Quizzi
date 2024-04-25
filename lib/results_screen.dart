@@ -1,13 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quizzi/data/questions.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:quizzi/questions_summary.dart';
+import 'package:quizzi/quiz.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.chosenAnswers});
+  const ResultsScreen(
+      {super.key, required this.chosenAnswers, required this.onRestart});
 
   final List<String> chosenAnswers;
+  final void Function() onRestart;
 
   // Object are pretty flexible i.e. it can store multiple types of values
   List<Map<String, Object>> getSummarydata() {
@@ -43,7 +47,13 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'You answered $correctQuestions out of $totalQuestions questions correctly',
+              'You answered $correctQuestions out of $totalQuestions questions correctly !',
+              style: GoogleFonts.lato(
+                color: const Color.fromARGB(255, 201, 174, 220),
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 30,
@@ -53,10 +63,10 @@ class ResultsScreen extends StatelessWidget {
               height: 30,
             ),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: onRestart,
               label: const Text('Restart Quiz',
                   style: TextStyle(color: Colors.white)),
-              icon: const Icon(Icons.arrow_back_ios),
+              icon: const Icon(Icons.restart_alt_rounded),
             )
           ],
         ),
